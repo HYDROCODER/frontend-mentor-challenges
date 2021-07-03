@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Screenshot
 
-![](./fylo_desktop.png)
-![](./fylo_mobile.png)
+![](./images/fylo_desktop.png)
+![](./images/fylo_mobile.png)
 
 Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
 
