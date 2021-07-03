@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+/* font-family: 'Raleway', sans-serif; 400,700*/
+:root {
+  --gradient: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+  --pale-blue: hsl(243, 100%, 93%);
+  --grayish-blue: hsl(229, 7%, 55%);
+  --dark-blue: hsla(228, 56%, 26%, 1);
+  --vdblue: hsl(229, 57%, 11%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Mobile first approach */
+/* background for mobile */
+body {
+  min-height: 100vh;
+  font-family: "Raleway", sans-serif;
+  font-size: 14px;
+  background-image: url("./images/bg-mobile.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+}
+/* display flex class */
+.d-flex {
+  display: flex;
+}
+/* wrapper around the whole component */
+.wrapper {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+/* two containers with same background and some border-radius */
+.container {
+  background-color: var(--dark-blue);
+  padding: 2rem;
+  border-radius: 0.75rem;
+}
+/* gap between the two containers */
+.container + .container {
+  margin-top: 1rem;
+}
+/* Fylo header section with some buttons(not working though) */
+header {
+  display: grid;
+  gap: 2rem;
+  border-top-right-radius: 100px !important;
+}
+/* three icons covered with the buttons div */
+#buttons {
+  align-items: center;
+  gap: 2rem;
+}
+/* each icon is wrapped with a span tag */
+#buttons span {
+  background-color: var(--vdblue);
+  padding: 0.75rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+/* Indicator container  */
+.indicator {
+  color: var(--pale-blue);
+  width: 100%;
+}
+/* sentence inside the indicator */
+.indicator p {
+  font-weight: 400;
+  text-align: center;
+}
+/* The indicator itself */
+.storage-indicator {
+  margin: 1.5rem 0;
+  border-radius: 100px;
+  width: 100%;
+  background-color: var(--vdblue);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+/* Pseudo elements for the 0GB and 1000GB tags */
+.storage-indicator::before {
+  position: absolute;
+  content: "0 GB";
+  font-weight: bold;
+  top: 100%;
+  left: 0;
+}
+.storage-indicator::after {
+  position: absolute;
+  content: "1000 GB";
+  font-weight: bold;
+  top: 100%;
+  right: 0;
+}
+/* Inner gradient filler telling how much storage has been used */
+.filler {
+  background: var(--gradient);
+  width: 81.5%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 100px;
+  padding: 2px;
+}
+/* The circle at the end of the filler */
+.circle {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--pale-blue);
+}
+/* Message telling how much storage is left */
+.storage-left {
+  margin-left: 50%;
+  transform: translate(-50%, -2.5rem);
+  color: var(--grayish-blue);
+  background-color: white;
+  font-weight: 700;
+  width: max-content;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+/* 185GB wrapped in a strong tag */
+.storage-left strong {
+  font-size: 1.75rem;
+  color: var(--vdblue);
+}
+/* Media query for larger screen sizes */
+@media (min-width: 1200px) {
+  body {
+    background-image: url("./images/bg-desktop.png");
+    background-position: right;
+  }
+  /* display flex for columns */
+  .wrapper {
+    display: flex;
+    gap: 3rem;
+    max-width: 1100px;
+  }
+  /*  styles for the desktop version  */
+  .storage-left {
+    margin-left: 0%;
+    transform: none;
+    left: -18%;
+    width: max-content;
+    height: min-content;
+    position: relative;
+    border-bottom-right-radius: 0 !important;
+  }
+  /* The triangle at the bottom right to make it look like a tooltip */
+  .storage-left::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    top: 100%;
+    right: 0;
+    border-top: 1rem solid #fff;
+    border-left: 1rem solid transparent;
+  }
+}
