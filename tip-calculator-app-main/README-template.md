@@ -26,16 +26,16 @@ Users should be able to:
 - Calculate the correct tip and total cost of the bill per person
 
 ### Screenshot
-![](./images/Desktop.jpg)
+![Mobile Version](./images/Mobile.jpg)
 
 
 
-![](./images/Mobile.jpg)
+![Desktop Version](./images/Desktop.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/HYDROCODER/frontend-mentor-challenges/tree/main/tip-calculator-app-main)
-- Live Site URL: [Add live site URL here](https://hydrocoder.github.io/frontend-mentor-challenges/tip-calculator-app-main/index.html)
+- Solution URL: [Solution](https://github.com/HYDROCODER/frontend-mentor-challenges/tree/main/tip-calculator-app-main)
+- Live Site URL: [Live Site](https://hydrocoder.github.io/frontend-mentor-challenges/tip-calculator-app-main/index.html)
 
 ## My process
 
