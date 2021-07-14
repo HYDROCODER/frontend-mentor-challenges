@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <!-- Javascript file -->
+
+    <script src="./main.js" defer></script>
+
+    <title>Frontend Mentor | Tip calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <!-- <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style> -->
+  </head>
+  <!-- Initial function in main.js file -->
+  <body onload="initial()">
+    <main class="full-screen-container">
+      <h1 class="heading f-col-vdcyan">spli<br />tter</h1>
+      <div class="container row">
+        <!-- The first col is for all the inputs; second one is for outputs and reset  -->
+        <div class="col">
+          <form id="myForm" action="#">
+            <div class="form-group bill-entry">
+              <label class="f-col-dgcyan" for="bill-amount">Bill</label>
+              <div class="input-wrapper">
+                <input
+                  type="number"
+                  name="billAmount"
+                  id="bill-amount"
+                  min="0.00"
+                  placeholder="0"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+            <div class="form-group tip-percent">
+              <label class="select-tip f-col-dgcyan">Select Tip %</label>
+              <div class="radio-group">
+                <input type="radio" name="tipPercent" id="t5" value="5" />
+                <label for="t5">5%</label>
+                <input type="radio" name="tipPercent" id="t10" value="10" />
+                <label for="t10">10%</label>
+                <input type="radio" name="tipPercent" id="t15" value="15" />
+                <label for="t15">15%</label>
+                <input type="radio" name="tipPercent" id="t25" value="25" />
+                <label for="t25">25%</label>
+                <input type="radio" name="tipPercent" id="t50" value="50" />
+                <label for="t50">50%</label>
+                <div class="input-wrapper no-dollar">
+                  <input
+                    type="number"
+                    name="ctipPercent"
+                    placeholder="Custom"
+                    dir="rtl"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-group num-of-people">
+              <label for="number-of-people"
+                ><span class="txt f-col-dgcyan">Number of People</span
+                ><span class="hide error-txt">Can't be zero</span></label
+              >
+              <div class="input-wrapper">
+                <input
+                  type="number"
+                  name="numPeople"
+                  id="bill-amount"
+                  min="1"
+                  placeholder="0"
+                  dir="rtl"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col">
+          <div class="tip-amount row">
+            <p class="f-col-lgcyan2">
+              Tip Amount<br /><span class="person f-col-dgcyan2">/person</span>
+            </p>
+            <span class="amount f-col-strongcyan f-700"
+              >$<span class="tip-number"></span
+            ></span>
+          </div>
+          <div class="total-amount row">
+            <p class="f-col-lgcyan2">
+              Total<br /><span class="person f-col-dgcyan2">/person</span>
+            </p>
+            <span class="amount f-col-strongcyan f-700"
+              >$<span class="total-number"></span
+            ></span>
+          </div>
+          <button
+            class="f-col-vdcyan f-700"
+            type="reset"
+            onclick="resetForm()"
+            disabled
+          >
+            RESET
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  </body>
+</html>

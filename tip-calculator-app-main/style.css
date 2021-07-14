@@ -1,0 +1,309 @@
+:root {
+  --strong-cyan: hsl(172, 67%, 45%);
+  --vdcyan: hsl(183, 100%, 15%);
+  --dgcyan: hsl(186, 14%, 43%);
+  --dgcyan2: hsl(184, 14%, 56%);
+  --lgcyan: hsl(185, 41%, 84%);
+  --lgcyan2: hsl(189, 41%, 97%);
+  --white: hsl(0, 0%, 100%);
+}
+/* Mobile first approach */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--lgcyan);
+  min-height: 100vh;
+  font-size: 1.5rem;
+  font-family: "Space Mono", monospace;
+  display: grid;
+  place-items: center;
+}
+/* Common styles */
+
+/* Removing the spinners for inputs */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/* Font Color classes */
+.f-col-lgcyan {
+  color: var(--lgcyan);
+}
+.f-col-lgcyan2 {
+  color: var(--lgcyan2);
+}
+.f-col-strongcyan {
+  color: var(--strong-cyan);
+}
+.f-col-dgcyan {
+  color: var(--dgcyan);
+}
+.f-col-dgcyan2 {
+  color: var(--dgcyan2);
+}
+.f-col-white {
+  color: var(--white);
+}
+.f-col-vdcyan {
+  color: var(--vdcyan);
+}
+/* Font-weight class */
+.f-700 {
+  font-weight: 700;
+}
+/* Font style and weight for the labels in radios and the other inputs */
+label {
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+/*  */
+.amount {
+  font-size: 3rem;
+  font-weight: 700;
+}
+/* Button styles */
+button {
+  border: none;
+  outline: none;
+  text-decoration: none;
+  width: 100%;
+  padding: 0.5em 0;
+  border-radius: 5px;
+  background-color: var(--strong-cyan);
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+button:is(:hover, :focus) {
+  cursor: pointer;
+  background-color: hsl(172, 67%, 75%);
+}
+/* Row class is used at three places: the container as a whole, the tip amount and the total amount classes as a whole*/
+.row {
+  display: flex;
+  gap: 0.35rem;
+}
+/* col is only used twice inside the container so giving gap between them */
+.col + .col {
+  margin-top: 1rem;
+}
+/* "SPLITTER" heading */
+.heading {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1rem;
+  color: var(--vdcyan);
+}
+/* The gap between the heading and the tipper calculator */
+main > * + * {
+  margin-top: 2rem;
+}
+/* the two blocks : one for input other for output represented as cols inside a row */
+main > .row {
+  flex-direction: column;
+}
+/* the calculator as a whole */
+.container {
+  --radius: 1.2rem;
+  background-color: var(--white);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+  padding: 1em;
+}
+/* The green result box */
+.col:nth-child(2) {
+  background-color: var(--vdcyan);
+  border-radius: var(--radius);
+  padding: 1em;
+}
+/* To space out the result context and the amount in dollars */
+.tip-amount,
+.total-amount {
+  justify-content: space-between;
+}
+/* The span containing the text /person */
+.person {
+  font-size: 1rem;
+}
+/* Spacing out the three parts of the green box  */
+.col > * + * {
+  margin-top: 1.5rem;
+}
+/* Stylinh "Bill" and "Number of People" input classes  */
+.form-group:nth-child(odd) {
+  display: flex;
+  flex-direction: column;
+}
+/* To get the $ sign and the people sign inside the inputs I am wrapping the inputs in a div; I am using the same wrapper for the "Custom" class in the "Select Tip %" input group  */
+.input-wrapper {
+  display: grid;
+  align-items: center;
+  position: relative;
+  width: -moz-available;
+  /* Had to use -moz-available to get across the complete width */
+}
+/* The dollar sign; overriding this content for "Custom" and "Number of People classes" */
+.input-wrapper::before {
+  content: "$";
+  position: absolute;
+  left: 0.25em;
+  z-index: 1;
+  /* Z-index to bring it to the front */
+  font-family: inherit;
+  font-size: 1.5em;
+  color: var(--dgcyan2);
+}
+.input-wrapper > input {
+  width: 100%;
+  padding: 0.5em 0.5em;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700 !important;
+  color: var(--vdcyan);
+  border: none;
+  background-color: var(--lgcyan2);
+  border-radius: 5px;
+}
+/* The input inside the input wrapper on focus */
+.input-wrapper > input:focus {
+  outline: none;
+  border: 2px solid var(--strong-cyan);
+}
+/* Different sign for the "Number of People" input */
+.num-of-people > .input-wrapper::before {
+  content: "\f007";
+  font-family: "Font Awesome 5 Free";
+  font-size: 1em;
+  font-weight: 700;
+  left: 0.5em;
+}
+/* To make the "Select Tip%" label extend the complete width */
+.select-tip {
+  display: block;
+}
+/* The radio buttons with the Custom input wrapped in the div */
+.radio-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+/* To remove the circles of the radio as well as prevent it from messing the styles but give the data to the javascript; using display none will not give the data to js file */
+input[type="radio"] {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}
+/* Every label next to radio input must be styled */
+.radio-group > input + label {
+  width: 45%;
+  padding: 0.5em;
+  background-color: var(--vdcyan);
+  color: var(--white);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  border-radius: 5px;
+}
+/* On focus */
+.radio-group > input + label:is(:hover, :focus) {
+  background-color: var(--strong-cyan);
+  color: var(--vdcyan);
+  cursor: pointer;
+}
+/* On check */
+input[type="radio"]:checked + label {
+  background-color: hsl(172, 67%, 75%);
+  color: var(--vdcyan);
+}
+/* Gaps between the form groups */
+.form-group + .form-group {
+  margin-top: 2em;
+}
+/* Gap between the heading of input(s) and the input itself  */
+.form-group > * + * {
+  margin-top: 0.5em;
+}
+/* "Custom" input class */
+.no-dollar {
+  width: 45%;
+}
+/* Giving the "Custom" input some padding */
+.no-dollar > input {
+  padding: 0.5em;
+}
+/* Removing the dollar sign in "Custom" input */
+.no-dollar::before {
+  z-index: -1 !important;
+}
+/* For showing error properly */
+label[for="number-of-people"] {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+/* Error text "Can't be zero" */
+.error-txt {
+  color: red;
+}
+/* Class to toggle the error text */
+.hide {
+  display: none;
+}
+/* Media query for larger screen sizes */
+@media (min-width: 1000px) {
+  .container {
+    box-shadow: 5px 25px 30px var(--dgcyan2);
+  }
+  /* The two sections of input and output must be in a row */
+  main > .row {
+    flex-direction: row;
+    padding: 1.5em;
+    border-radius: 1em;
+  }
+  /* To style the green (output) section to push the button to the bottom */
+  /* Doesn't affect the first col as it only has a form */
+  .col {
+    width: 100%;
+    display: grid;
+  }
+  /* Give gap b/w the input and output sections */
+  .col + .col {
+    margin-left: 1em;
+    margin-top: 0;
+  }
+  /* Three rows in the grid, to move the Tip Amount to the bottom of its own row */
+  .tip-amount {
+    align-self: end;
+  }
+  /* The Reset button to the bottom */
+  button {
+    align-self: end;
+  }
+  /* 3 radios in a row */
+  .radio-group > input + label {
+    width: 30%;
+  }
+  /* "Custom" input */
+  .no-dollar {
+    width: 30%;
+  }
+  .no-dollar > input {
+    padding: 0.5em;
+  }
+  /* Error text to the right */
+  .error-txt {
+    float: right;
+  }
+}
