@@ -87,6 +87,9 @@ button:is(:hover, :focus) {
   cursor: pointer;
   background-color: hsl(172, 67%, 75%);
 }
+button:disabled {
+  background-color: hsl(183, 100%, 20%);
+}
 /* Row class is used at three places: the container as a whole, the tip amount and the total amount classes as a whole*/
 .row {
   display: flex;
