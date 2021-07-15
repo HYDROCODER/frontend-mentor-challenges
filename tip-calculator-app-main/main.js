@@ -19,7 +19,7 @@ function initial() {
 
 //Adding blur listener to listen to changes for the inputs
 inputs.forEach((input) => {
-  input.addEventListener("blur", (e) => {
+  input.addEventListener("input", (e) => {
     // console.log(`name : ${e.target.name} , value: ${e.target.value}`);
     store(e.target.name, e.target.value); //to store the input value on blur
   });
