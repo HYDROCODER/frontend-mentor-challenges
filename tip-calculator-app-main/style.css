@@ -67,7 +67,7 @@ label {
 }
 /*  */
 .amount {
-  font-size: 3rem;
+  font-size: 2em;
   font-weight: 700;
 }
 /* Button styles */
@@ -123,6 +123,8 @@ main > .row {
   border-top-left-radius: var(--radius);
   border-top-right-radius: var(--radius);
   padding: 1em;
+  width: 100%;
+  max-width: 700px;
 }
 /* The green result box */
 .col:nth-child(2) {
@@ -133,11 +135,12 @@ main > .row {
 /* To space out the result context and the amount in dollars */
 .tip-amount,
 .total-amount {
+  font-size: 0.75em;
   justify-content: space-between;
 }
 /* The span containing the text /person */
 .person {
-  font-size: 1rem;
+  font-size: 0.8em;
 }
 /* Spacing out the three parts of the green box  */
 .col > * + * {
@@ -268,6 +271,7 @@ label[for="number-of-people"] {
 @media (min-width: 1000px) {
   .container {
     box-shadow: 5px 25px 30px var(--dgcyan2);
+    max-width: 1200px;
   }
   /* The two sections of input and output must be in a row */
   main > .row {
