@@ -184,7 +184,8 @@ main > .row {
 /* The input inside the input wrapper on focus */
 .input-wrapper > input:focus {
   outline: none;
-  border: 2px solid var(--strong-cyan);
+/*   border: 2px solid var(--strong-cyan); */
+    box-shadow: inset 0px 0px 0px 2px #26c0ab;
 }
 /* Different sign for the "Number of People" input */
 .num-of-people > .input-wrapper::before {
