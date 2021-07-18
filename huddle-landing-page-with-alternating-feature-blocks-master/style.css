@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:wght@600&display=swap");
+/* font-family: 'Open Sans', sans-serif; 400 700
+font-family: 'Poppins', sans-serif; 600*/
+/* Color css variables */
+:root {
+  --pink: hsl(322, 100%, 66%);
+  --vpcyan: hsl(193, 100%, 96%);
+  --vdcyan: hsl(192, 100%, 9%);
+  --gblue: hsl(208, 11%, 55%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.125rem;
+}
+/* Common styles */
+img {
+  max-width: 100%;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+.btn {
+  display: inline-block;
+  padding: 0.75em 2em;
+  border-radius: 100px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  color: black;
+  font-weight: 700;
+}
+.btn:hover,
+.btn:focus {
+  opacity: 0.7;
+}
+/* Wrapper around the content */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* Header styles */
+header {
+  background: url("./images/bg-hero-mobile.svg") center no-repeat;
+  background-size: cover;
+  background-color: var(--vpcyan);
+  padding-top: 3rem;
+}
+/* The icon and the try it free button wrapped in an ul */
+.nav__top {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+}
+/* The button try it free */
+#try-it-free {
+  background-color: #fff;
+}
+/* Gap b/w the nav above and the main content in the header */
+header .container > * + * {
+  margin-top: 7rem;
+}
+/* wrapping the heading the para and the button in the header */
+.intro__content {
+  width: 65%;
+  margin: 0 auto;
+  text-align: center;
+}
+/* gaps */
+.intro__content > * + * {
+  margin-top: 1rem;
+}
+/* Get Started For Free button */
+.btn-get-started {
+  /* width: 80%; */
+  background-color: var(--pink);
+  color: white;
+}
+/* div wrapping the mockups */
+.mockup-img-container {
+  margin-top: 4rem;
+  transform: scale(0.8);
+  /* width: 75%; */
+}
+/* Main content styles (3 cards) */
+main {
+  padding-top: 4rem;
+}
+/* Common styles for each card */
+.card {
+  width: 80%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  padding: 2rem 4rem;
+  text-align: center;
+}
+/* Gap b/w each card */
+.card + .card {
+  margin-top: 3rem;
+}
+/* Image inside each card */
+.article__image {
+  width: 75%;
+  margin: 0 auto;
+}
+/* The text inside each card */
+.article__content {
+  margin-top: 4rem;
+  padding: 0 2rem;
+}
+.article__content > * + * {
+  margin-top: 1rem;
+}
+.article__text {
+  color: var(--gblue);
+}
+/* final call to actions card */
+.final-call {
+  width: 90%;
+  max-width: 800px;
+  background-color: #fff;
+  position: relative;
+  top: 5rem;
+  z-index: 2;
+}
+/* Footer styles */
+footer {
+  padding-top: 8rem;
+  background-color: var(--vdcyan);
+  color: white;
+}
+footer .logo-container img {
+  mix-blend-mode: screen;
+}
+footer .container > * + * {
+  margin-top: 2.5rem;
+}
+/* contacts in the form of location phone number and email address */
+.contact__list > * {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+/* The icon in each contact */
+.contact__icon {
+  width: 10%;
+}
+/* Text in each contact */
+.contact__text {
+  width: 85%;
+}
+/* Four columns in desktop version so just named it so */
+.footer__cols > * {
+  margin-top: 2rem;
+}
+/* Two columns of navigation in the footer  */
+.footer__nav > li + li {
+  margin-top: 1rem;
+}
+.footer__nav > li > a:hover {
+  box-shadow: 0 2px white;
+}
+/* Social media icons and copyright */
+.footer__social-media,
+.copyright {
+  display: flex;
+  justify-content: center;
+}
+.footer__social-media > * + * {
+  margin-left: 1rem;
+}
+.footer__social-media--icon {
+  /* width: fit-content; */
+  padding: 1.25rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid white;
+  display: grid;
+  place-items: center;
+}
+.footer__social-media--icon img {
+  display: inline-block;
+}
+.footer__social-media--icon:hover {
+  border: 1px solid var(--pink);
+  color: var(--pink);
+  cursor: pointer;
+}
+
+/* Media query for larger screen sizes */
+@media (min-width: 1000px) {
+  header {
+    min-height: 600px;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  .col {
+    width: 100%;
+  }
+  header .container > * + * {
+    margin-top: 3rem;
+  }
+  .intro__content {
+    width: 45%;
+    align-self: center;
+    text-align: left;
+  }
+  .mockup-img-container {
+    width: 45%;
+    margin-top: 0rem;
+    transform: scale(1);
+    /* width: 75%; */
+  }
+  .article__content {
+    text-align: left;
+  }
+  .article__image {
+    width: 45%;
+    margin: 0 auto;
+  }
+  .article__content {
+    width: 45%;
+    align-self: center;
+    margin-top: 0rem;
+    padding: 0 2rem;
+  }
+  /* A class to reverse the order of things in the card */
+  .row-rev {
+    flex-direction: row-reverse;
+  }
+  .contact__list > * {
+    margin-top: 0rem;
+  }
+  .contact__list > * + * {
+    margin-top: 2rem;
+  }
+  .footer__cols > * + * {
+    margin-left: 2rem;
+  }
+  /* The four columns in desktop version */
+  .footer__col:nth-child(1) {
+    width: 40%;
+  }
+  .footer__col:nth-child(2),
+  .footer__col:nth-child(3),
+  .footer__col:nth-child(4) {
+    width: 20%;
+  }
+  .copyright {
+    justify-content: flex-end;
+  }
+}
