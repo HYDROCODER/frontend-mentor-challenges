@@ -17,7 +17,7 @@ function initial() {
   console.log("Initial function done");
 }
 
-//Adding blur listener to listen to changes for the inputs
+//Adding input listener to listen to inputs
 inputs.forEach((input) => {
   input.addEventListener("input", (e) => {
     // console.log(`name : ${e.target.name} , value: ${e.target.value}`);
