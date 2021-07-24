@@ -1,0 +1,636 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap");
+/* font-family: 'Barlow', sans-serif;
+font-family: 'Fraunces', serif; */
+:root {
+  --soft-red: hsl(7, 99%, 70%);
+  --yellow: hsl(51, 100%, 49%);
+  --dark-desaturated-cyan: hsl(167, 40%, 24%);
+  --dark-blue: hsl(198, 62%, 26%);
+  --dark-moderate-cyan: hsl(168, 34%, 61%);
+  --vd-desaturated-blue: hsl(212, 27%, 19%);
+  --vd-grayish-blue: hsl(213, 9%, 39%);
+  --d-grayish-blue: hsl(232, 10%, 55%);
+  --grayish-blue: hsl(210, 4%, 67%);
+  --white: hsl(0, 0%, 100%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 1.125rem;
+  font-family: "Barlow", sans-serif;
+  text-align: center;
+}
+
+/* Common styles */
+i,
+a {
+  cursor: pointer;
+}
+a,
+footer li {
+  text-decoration: none;
+  display: inline-block;
+}
+ul {
+  list-style-type: none;
+}
+img {
+  display: inline-block;
+  max-width: 100%;
+  height: 100%;
+}
+h1,
+h2 {
+  font-family: "Fraunces", serif;
+}
+
+/* Three overlays: one in the header, the other two are "Graphic Design" and "Photography" */
+.overlay-content {
+  display: grid;
+  grid-template-areas: "container";
+}
+.overlay-content > * {
+  grid-area: container;
+}
+.overlay-text {
+  justify-self: center;
+  width: 90%;
+}
+.overlay-img {
+  position: relative; /* Needed for just for z-index. */
+  z-index: -2;
+}
+.intro__heading,p{
+  max-width: 400px; 
+  margin: 0 auto;
+}
+/* Header */
+/* "We are creative" heading */
+.intro__heading {
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-size: 3rem;
+  color: var(--white);
+  margin-top: 30%;
+}
+
+/* Arrow beneath the above heading */
+.arrow {
+  margin-top: 2rem;
+  animation: up-down 0.9s infinite ease-out;
+}
+
+/* Just a small animation for the arrow */
+@keyframes up-down {
+  to {
+    margin-top: 4rem;
+    opacity: 0.1;
+  }
+}
+
+/* The nav in the header */
+.nav__primary {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* ul inside the nav */
+.nav__primary .nav__list {
+  z-index: 2;
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--white);
+  width: 100%;
+  padding: 1.75rem;
+}
+
+/* Arrow pointing to the hamburger on clicking it */
+.nav__primary .nav__list::before {
+  content: "";
+  position: absolute;
+  --size: 2rem;
+  top: calc(var(--size) * -1);
+  right: 0;
+  border-bottom: var(--size) solid var(--white);
+  border-left: var(--size) solid transparent;
+}
+
+/* Spacing between the nav items */
+.nav__primary .nav-item + .nav-item {
+  margin-top: 1.75rem;
+}
+
+/* Padding for more clickable area for each nav link; not needed for contact button */
+.nav__primary .nav__link:not(.contact) {
+  padding: 0.25em;
+}
+
+/* Hover effects */
+a:not(.contact,.footer__logo,.logo,.hamburger,#learn-more,.fab):hover{
+  box-shadow: 0 2px 0 black; 
+}
+
+/* Contact button styles */
+.contact {
+  background-color: var(--yellow);
+  border-radius: 100px;
+  padding: 0.75em 2em;
+}
+.contact:hover {
+  background-color: var(--soft-red);
+}
+
+/* Navigation class toggle */
+.nav__invisible {
+  display: none;
+}
+
+/* Hamburger toggle button */
+.hamburger > img {
+  --click-area: 0.45rem;
+  padding: var(--click-area) 0 var(--click-area) var(--click-area);
+}
+
+/* Two-cols overlay (Graphic design and photography)*/
+
+.two-cols .overlay-text {
+  align-self: end;
+  position: relative;
+  bottom: 15%;
+}
+.two-cols .overlay-heading {
+  margin-bottom: 2rem;
+}
+.call-for-actions {
+  --br-clr: none;
+}
+.three-cols,
+.call-for-actions .col:not(.img-container) {
+  width: 90%;
+  margin: 0 auto;
+  padding: 2.5em 0;
+}
+.call-for-actions .col:not(.img-container) > * + * {
+  margin-top: 1.5em;
+}
+.call-for-actions a {
+  color: black;
+  text-transform: uppercase;
+  box-shadow: 0 5px 0 var(--br-clr);
+}
+.yellow a {
+  --br-clr: var(--yellow);
+}
+.soft-red a {
+  --br-clr: var(--soft-red);
+}
+
+/* Three-cols (Testimonials) */
+
+.three-cols--heading {
+  text-transform: uppercase;
+}
+.three-cols .container>*+*{
+  margin-top: 5rem;  
+}
+.three-cols .col>*+*{
+  margin-top: 1rem; 
+}
+.client__img-container > img {
+  border-radius: 50%;
+  width: 5rem;
+}
+.client-details >*+*{
+  margin-top: 0.15rem;
+}
+
+/* Image gallery */
+
+.four-cols > .row {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "a b" "c d";
+}
+.four-cols img {
+  object-fit: cover;
+}
+.four-cols .col :nth-child(2) {
+  grid-area: a;
+}
+.four-cols .col :nth-child(1) {
+  grid-area: b;
+}
+.four-cols .col :nth-child(3) {
+  grid-area: c;
+}
+.four-cols .col :nth-child(4) {
+  grid-area: d;
+}
+
+/* Footer */
+
+footer {
+  min-height: 180px;
+  background-color: var(--dark-moderate-cyan);
+  display: grid;
+  place-items: center;
+}
+
+footer a,
+i {
+  color: var(--dark-desaturated-cyan);
+}
+footer li + li {
+  margin-left: 0.5rem;
+}
+
+footer .nav__list {
+  margin-top: 1rem;
+}
+.footer__social-media {
+  margin-top: 2.5rem;
+}
+/* @media (min-width: 600px) {
+  .row {
+    display: flex;
+  }
+} */
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap");
+/* font-family: 'Barlow', sans-serif;
+font-family: 'Fraunces', serif; */
+:root {
+  --soft-red: hsl(7, 99%, 70%);
+  --yellow: hsl(51, 100%, 49%);
+  --dark-desaturated-cyan: hsl(167, 40%, 24%);
+  --dark-blue: hsl(198, 62%, 26%);
+  --dark-moderate-cyan: hsl(168, 34%, 61%);
+  --vd-desaturated-blue: hsl(212, 27%, 19%);
+  --vd-grayish-blue: hsl(213, 9%, 39%);
+  --d-grayish-blue: hsl(232, 10%, 55%);
+  --grayish-blue: hsl(210, 4%, 67%);
+  --white: hsl(0, 0%, 100%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 1.125rem;
+  font-family: "Barlow", sans-serif;
+  text-align: center;
+}
+
+/* Common styles */
+.desktop {
+  display: none;
+}
+i,
+a {
+  cursor: pointer;
+}
+a,
+footer li {
+  text-decoration: none;
+  display: inline-block;
+}
+ul {
+  list-style-type: none;
+}
+
+.img-container {
+  overflow: hidden;
+}
+img {
+  display: inline-block;
+  max-width: 100%;
+  min-height: 100%;
+}
+h1,
+h2 {
+  font-family: "Fraunces", serif;
+}
+/* Font weights and color */
+.f-wt-600 {
+  font-weight: 600;
+}
+.f-wt-700 {
+  font-weight: 700;
+}
+.f-wt-900 {
+  font-weight: 900;
+}
+.d-desat-cyan {
+  color: var(--dark-desaturated-cyan);
+}
+.d-blue {
+  color: var(--dark-blue);
+}
+p {
+  line-height: 1.65;
+}
+/* Three overlays: one in the header, the other two are "Graphic Design" and "Photography" */
+.overlay-content {
+  display: grid;
+  grid-template-areas: "container";
+}
+.overlay-content > * {
+  grid-area: container;
+}
+.overlay-text {
+  justify-self: center;
+  width: 90%;
+}
+.overlay-img {
+  position: relative; /* Needed for just for z-index. */
+  z-index: -2;
+}
+.intro__heading,
+p {
+  max-width: 400px;
+  margin: 0 auto;
+}
+/* Header a and call for actions para color*/
+
+header a {
+  color: var(--d-grayish-blue);
+}
+/* "We are creative" heading */
+.intro__heading {
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-size: 3rem;
+  color: var(--white);
+  margin-top: 8rem;
+}
+
+/* Arrow beneath the above heading */
+.arrow {
+  margin-top: 2rem;
+  animation: up-down 0.9s infinite ease-out;
+}
+
+/* Just a small animation for the arrow */
+/* @keyframes up-down {
+  to {
+    margin-top: 4rem;
+    opacity: 0.1;
+  }
+} */
+
+/* The nav in the header */
+.nav__primary {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* ul inside the nav */
+.nav__primary .nav__list {
+  z-index: 2;
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--white);
+  width: 100%;
+  padding: 1.75rem;
+}
+
+/* Arrow pointing to the hamburger on clicking it */
+.nav__primary .nav__list::before {
+  content: "";
+  position: absolute;
+  --size: 2rem;
+  top: calc(var(--size) * -1);
+  right: 0;
+  border-bottom: var(--size) solid var(--white);
+  border-left: var(--size) solid transparent;
+}
+
+/* Spacing between the nav items */
+.nav__primary .nav-item + .nav-item {
+  margin-top: 1.75rem;
+}
+
+/* Padding for more clickable area for each nav link; not needed for contact button */
+.nav__primary .nav__link:not(.contact) {
+  padding: 0.25em;
+}
+
+/* Hover effects */
+a:not(.contact, .footer__logo, .logo, .hamburger, #learn-more, .fab):hover {
+  box-shadow: 0 2px 0 black;
+}
+
+/* Contact button styles */
+.contact {
+  background-color: var(--yellow);
+  border-radius: 100px;
+  padding: 0.75em 2em;
+  font-family: "Fraunces", serif;
+  color: black;
+  text-transform: uppercase;
+}
+.contact:hover {
+  background-color: var(--soft-red);
+}
+
+/* Navigation class toggle */
+.nav__invisible {
+  display: none;
+}
+
+/* Hamburger toggle button */
+.hamburger > img {
+  --click-area: 0.45rem;
+  padding: var(--click-area) 0 var(--click-area) var(--click-area);
+}
+
+/* Two-cols overlay (Graphic design and photography)*/
+
+.two-cols .overlay-text {
+  align-self: end;
+  position: relative;
+  bottom: 10%;
+}
+.two-cols .overlay-heading {
+  margin-bottom: 2rem;
+}
+.call-for-actions {
+  --br-clr: none;
+}
+.call-for-actions .col:not(.img-container) {
+  width: 90%;
+  margin: 0 auto;
+  padding: 3em 0;
+}
+.call-for-actions .col:not(.img-container) > * + * {
+  margin-top: 1.5em;
+}
+.call-for-actions p {
+  color: var(--d-grayish-blue);
+}
+.call-for-actions a {
+  color: black;
+  text-transform: uppercase;
+  box-shadow: 0 5px 0 var(--br-clr);
+  font-family: "Fraunces", serif;
+}
+.yellow a {
+  --br-clr: var(--yellow);
+}
+.soft-red a {
+  --br-clr: var(--soft-red);
+}
+
+/* Three-cols (Testimonials) */
+.three-cols .container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 3em 0;
+}
+.three-cols--heading {
+  text-transform: uppercase;
+  color: var(--grayish-blue);
+  font-size: 1.25rem;
+  letter-spacing: 0.25rem;
+}
+.three-cols .container .row > * {
+  margin-top: 5rem;
+}
+.three-cols .col > * + * {
+  margin-top: 1rem;
+}
+.client__img-container > img {
+  border-radius: 50%;
+  width: 5rem;
+}
+.client-details > * + * {
+  margin-top: 0.15rem;
+}
+.client-testimonial {
+  color: var(--vd-grayish-blue);
+}
+.client-name {
+  font-size: 1.25em;
+}
+.client-role {
+  color: var(--grayish-blue);
+}
+
+/* Image gallery */
+
+.four-cols > .row {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "a b" "c d";
+}
+.four-cols img {
+  object-fit: cover;
+}
+.four-cols .col :nth-child(2) {
+  grid-area: a;
+}
+.four-cols .col :nth-child(1) {
+  grid-area: b;
+}
+.four-cols .col :nth-child(3) {
+  grid-area: c;
+}
+.four-cols .col :nth-child(4) {
+  grid-area: d;
+}
+
+/* Footer */
+
+footer {
+  min-height: 180px;
+  background-color: var(--dark-moderate-cyan);
+  display: grid;
+  place-items: center;
+}
+
+footer a,
+i {
+  color: var(--dark-desaturated-cyan);
+}
+footer li + li {
+  margin-left: 0.5rem;
+}
+
+footer .nav__list {
+  margin-top: 1rem;
+}
+.footer__social-media {
+  margin-top: 2.5rem;
+}
+@media (min-width: 740px) {
+  /* .img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } */
+  .call-for-actions .col:not(.img-container) {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0em 1em;
+  }
+  .three-cols .row > .col + .col {
+    margin-left: 1.7em;
+  }
+  /* Image gallery */
+  .four-cols > .row {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "a b c d";
+  }
+  .four-cols img {
+    object-fit: cover;
+  }
+  .four-cols .col :nth-child(2) {
+    grid-area: a;
+  }
+  .four-cols .col :nth-child(1) {
+    grid-area: b;
+  }
+  .four-cols .col :nth-child(3) {
+    grid-area: c;
+  }
+  .four-cols .col :nth-child(4) {
+    grid-area: d;
+  }
+  .desktop {
+    display: inline-block;
+  }
+  .mobile {
+    display: none;
+  }
+  .row {
+    display: flex;
+  }
+  .call-for-actions .col {
+    width: 50% !important;
+  }
+  .call-for-actions .col:not(.img-container) {
+    align-self: center;
+  }
+  .yellow .row {
+    flex-direction: row-reverse;
+  }
+}

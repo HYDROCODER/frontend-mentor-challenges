@@ -1,0 +1,420 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap");
+
+:root {
+  --soft-red: hsl(7, 99%, 70%);
+  --yellow: hsl(51, 100%, 49%);
+  --dark-desaturated-cyan: hsl(167, 40%, 24%);
+  --dark-blue: hsl(198, 62%, 26%);
+  --dark-moderate-cyan: hsl(168, 34%, 61%);
+  --vd-desaturated-blue: hsl(212, 27%, 19%);
+  --vd-grayish-blue: hsl(213, 9%, 39%);
+  --d-grayish-blue: hsl(232, 10%, 55%);
+  --grayish-blue: hsl(210, 4%, 67%);
+  --white: hsl(0, 0%, 100%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 1.125rem;
+  font-family: "Barlow", sans-serif;
+  text-align: center;
+  /* To prevent from stretching and centering */
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Common styles */
+/* Desktop images not to display */
+.desktop {
+  display: none;
+}
+i,
+a {
+  cursor: pointer;
+}
+a,
+footer li {
+  text-decoration: none;
+  display: inline-block;
+}
+ul {
+  list-style-type: none;
+}
+p {
+  line-height: 1.65;
+}
+img {
+  display: inline-block;
+  max-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+h1,
+h2 {
+  font-family: "Fraunces", serif;
+}
+/* Font weights and color */
+.f-wt-600 {
+  font-weight: 600;
+}
+.f-wt-700 {
+  font-weight: 700;
+}
+.f-wt-900 {
+  font-weight: 900;
+}
+.d-desat-cyan {
+  color: var(--dark-desaturated-cyan);
+}
+.d-blue {
+  color: var(--dark-blue);
+}
+
+/* Three overlays: one in the header, the other two are "Graphic Design" and "Photography" */
+.overlay-content {
+  display: grid;
+  grid-template-areas: "container";
+}
+.overlay-content > * {
+  grid-area: container;
+}
+.overlay-text {
+  justify-self: center;
+  width: 90%;
+}
+.overlay-img {
+  position: relative; /* Needed for just for z-index. */
+  z-index: -2;
+}
+.intro__heading,
+p {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Header a and call for actions para color*/
+header a {
+  color: var(--d-grayish-blue);
+}
+.call-for-actions p {
+  color: var(--d-grayish-blue);
+}
+/* "We are creatives" heading */
+.intro__heading {
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-size: 3.15rem;
+  color: var(--white);
+  margin-top: 8rem;
+}
+
+/* Arrow beneath the above heading */
+.arrow {
+  margin-top: 2rem;
+  animation: up-down 1s infinite ease-out;
+}
+
+/* Just a small animation for the arrow */
+/* @keyframes up-down {
+  to {
+    margin-top: 3rem;
+    opacity: 0.4;
+  }
+} */
+
+/* The nav in the header; desktop nav is not displayed */
+.nav__desktop {
+  display: none;
+}
+.nav__primary {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* ul inside the nav__primary */
+.nav__primary .nav__list {
+  z-index: 2;
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--white);
+  width: 100%;
+  padding: 1.75rem;
+}
+
+/* Arrow pointing to the hamburger on clicking it */
+.nav__primary .nav__list::before {
+  content: "";
+  position: absolute;
+  --size: 2rem;
+  top: calc(var(--size) * -1);
+  right: 0;
+  border-bottom: var(--size) solid var(--white);
+  border-left: var(--size) solid transparent;
+}
+
+/* Spacing between the nav items */
+.nav__primary .nav-item + .nav-item {
+  margin-top: 1.75rem;
+}
+
+/* Padding for more clickable area for each nav link; not needed for contact button */
+.nav__primary .nav__link:not(.contact) {
+  padding: 0.25em;
+}
+
+/* Hover effects */
+
+:is(.nav__desktop, .nav__primary) .nav__link:not(.contact):hover {
+  box-shadow: 0 2px 0 black;
+}
+
+/* Contact button styles */
+.contact {
+  background-color: var(--yellow);
+  border-radius: 100px;
+  padding: 0.75em 2em;
+  font-family: "Fraunces", serif;
+  color: black;
+  text-transform: uppercase;
+}
+.contact:hover {
+  background-color: var(--soft-red);
+}
+
+/* Navigation class for toggling */
+.nav__invisible {
+  display: none;
+}
+
+/* Hamburger toggle button */
+.hamburger > img {
+  --click-area: 0.45rem;
+  padding: var(--click-area) 0 var(--click-area) var(--click-area);
+}
+
+/* Two-cols overlay (Graphic design and photography)*/
+.two-cols .overlay-text {
+  align-self: end;
+  position: relative;
+  bottom: 5rem;
+}
+.two-cols .overlay-heading {
+  margin-bottom: 2rem;
+}
+.two-cols .overlay-content {
+  min-height: 600px;
+}
+
+/* Call for actions */
+
+.call-for-actions .col:not(.img-container) {
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 3em 0;
+}
+.call-for-actions .col:not(.img-container) > * + * {
+  margin-top: 1.5em;
+}
+/* LEARN MORE button styles; br-clr is for border-bottom-color below the learn more buttons */
+.learn-more {
+  --br-clr: none;
+  color: black;
+  text-transform: uppercase;
+  font-family: "Fraunces", serif;
+  position: relative;
+}
+/* How to use % in calc? */
+.learn-more::before {
+  content: "";
+  position: absolute;
+  width: 110%;
+  height: 10px;
+  top: 60%;
+  /* To center this below the text, if width is 100+ 2*x% then left is x% */
+  left: -5%;
+  z-index: -1;
+  border-radius: 100px;
+  background-color: var(--br-clr);
+}
+
+.yellow .learn-more::before {
+  --br-clr: var(--yellow);
+}
+.soft-red .learn-more::before {
+  --br-clr: var(--soft-red);
+}
+:is(.yellow, .soft-red) .learn-more::before {
+  opacity: 0.45;
+}
+:is(.yellow, .soft-red) .learn-more:hover::before {
+  opacity: 1;
+}
+
+/* Three-cols (Testimonials) */
+.three-cols .container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10em 0;
+}
+.three-cols--heading {
+  text-transform: uppercase;
+  color: var(--grayish-blue);
+  font-size: 1.25rem;
+  letter-spacing: 0.25rem;
+}
+.three-cols .container .row > * {
+  margin-top: 5rem;
+}
+.three-cols .col > * + * {
+  margin-top: 1rem;
+}
+/* Each client related */
+.client__img-container > img {
+  border-radius: 50%;
+  width: 5rem;
+}
+.client-details > * + * {
+  margin-top: 0.15rem;
+}
+.client-testimonial {
+  color: var(--vd-grayish-blue);
+}
+.client-name {
+  font-size: 1.25em;
+}
+.client-role {
+  color: var(--grayish-blue);
+}
+
+/* Image gallery */
+
+.four-cols > .row {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "a b" "c d";
+}
+.four-cols .col :nth-child(2) {
+  grid-area: a;
+}
+.four-cols .col :nth-child(1) {
+  grid-area: b;
+}
+.four-cols .col :nth-child(3) {
+  grid-area: c;
+}
+.four-cols .col :nth-child(4) {
+  grid-area: d;
+}
+
+/* Footer */
+
+footer .container {
+  min-height: 400px;
+  background-color: var(--dark-moderate-cyan);
+  display: grid;
+  place-items: center;
+  align-content: space-evenly;
+}
+footer a,
+i {
+  color: var(--dark-desaturated-cyan);
+}
+footer li + li {
+  margin-left: 2em;
+}
+footer .nav__list {
+  margin-top: 3rem;
+}
+:is(footer a, .fab):hover {
+  color: white;
+}
+
+/* Media query for larger screen sizes */
+@media (min-width: 740px) {
+  .intro__heading {
+    /* to give it a full line */
+    max-width: none;
+  }
+  /* To stop displaying the primary navigation and start the desktop one */
+  .nav__primary {
+    display: none;
+  }
+  /* For the primary navigation of desktop  */
+  .nav__desktop,
+  .nav__desktop--list {
+    display: flex;
+    align-items: center;
+  }
+  .nav__desktop {
+    position: relative;
+    z-index: 2;
+    margin-top: 1rem;
+    justify-content: space-between;
+  }
+  .nav__desktop--list {
+    gap: 2em;
+  }
+  .nav__desktop--list .nav__link:not(.contact) {
+    color: white;
+  }
+  /* to align the text and remove top-bottom padding */
+  .call-for-actions .col:not(.img-container) {
+    padding: 2em 1em;
+    align-self: center;
+    text-align: left;
+  }
+  .call-for-actions h2 {
+    font-size: 2.5rem;
+  }
+  /* Testimonials */
+  .three-cols .row > .col + .col {
+    margin-left: 1.7em;
+  }
+  /* Image gallery */
+  .four-cols > .row {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "a b c d";
+  }
+  .four-cols .col :nth-child(2) {
+    grid-area: a;
+  }
+  .four-cols .col :nth-child(1) {
+    grid-area: b;
+  }
+  .four-cols .col :nth-child(3) {
+    grid-area: c;
+  }
+  .four-cols .col :nth-child(4) {
+    grid-area: d;
+  }
+  /* To display desktop images and hide the mobile images */
+  .desktop {
+    display: inline-block;
+  }
+  .mobile {
+    display: none;
+  }
+  /* For call for actions and others */
+  .row {
+    display: flex;
+  }
+  .call-for-actions .col {
+    width: 50% !important;
+  }
+  .yellow .row {
+    flex-direction: row-reverse;
+  }
+}
